@@ -10,6 +10,20 @@
 // * [ ] `scroll`
 // * [ ] `select`
 // * [ ] `dblclick`
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive   
+}
+
+
+document.addEventListener('scroll', function(e) {
+    let red = getRandomIntInclusive(0,255);
+    let green = getRandomIntInclusive(0,255);
+    let blue = getRandomIntInclusive(0,255);
+
+
+    document.getElementsByTagName('body')[0].bgColor= `rgb(${red},${green},${blue})`;});
 
 const anchors = document.querySelectorAll('.nav-link');
 console.log(anchors);
@@ -23,8 +37,9 @@ anchors.forEach( anchor => {
     });
 
     
-    anchor.addEventListener('blue', function(){
-        anchor.style = "color: black";
+    anchor.addEventListener('blur', function(e){
+        console.log(e);
+        anchor.style = "color: blue";
     });
 });
 
@@ -40,6 +55,8 @@ logo[0].addEventListener('dblclick', function() {
     console.log();
     logo[0].innerHTML = '<h2>oh hi there, are you looking for me?<h2>';
 });
+
+
 
 
 
